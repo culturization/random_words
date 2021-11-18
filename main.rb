@@ -13,7 +13,7 @@ class RandomWords
     OptionParser.new do |opts|
       opts.on('-f', '--filename FILENAME') { |n| @filename = n }
       opts.on('-d', '--download') { download }
-      opts.on('-g', '--get N') { |n| get(n.to_i) }
+      opts.on('-g', '--get N', Integer) { |n| get(n) }
     end.parse!
   end
 
