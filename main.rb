@@ -24,7 +24,7 @@ class RandomWords
   end
 
   def define_file_option
-    @parser.on('-f', '--filename FILENAME',
+    @parser.on('-f', '--file FILE',
                'path to the file with which the program will operate') { |file| @file = file }
   end
 
@@ -39,7 +39,7 @@ class RandomWords
     @parser.on('-g', '--get N', Integer, 'show N random words from the file') do |n|   
       raise ArgumentError, 'file does not exist' unless File.file?(@file)
 
-      puts IO.readlines(@file).sample(n)
+      puts File.readlines(@file).sample(n)
     end
   end
 
